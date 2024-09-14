@@ -14,8 +14,10 @@ namespace Negocio
             List<Jugador> lista = new List<Jugador>();
             Jugador j1 = new Jugador("Pancho");
             Jugador j2 = new Jugador("Corcho");
+            Jugador j3 = new Jugador("Nicox");
             lista.Add(j1);
             lista.Add(j2);
+            lista.Add(j3);
             return lista;
         }
     }

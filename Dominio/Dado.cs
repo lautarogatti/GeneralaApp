@@ -10,14 +10,15 @@ namespace Dominio
     {
         public int Lados { get; set; }
         public int ValorActual { get; set; }
+        private Random random;
 
         public Dado(int lados) {
             this.Lados = lados;
+            random = new Random();  
         }
 
         public int tirar()
         {
-            Random random = new Random();
             ValorActual = random.Next(1, Lados);
             return ValorActual;
         }

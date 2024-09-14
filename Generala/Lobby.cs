@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace Generala
     public partial class Lobby : Form
     {
         private List<Jugador> jugadores;
+        private List<Jugador> perfiles;
         public Lobby()
         {
             InitializeComponent();
@@ -24,8 +26,10 @@ namespace Generala
         {
             jugadores = new List<Jugador>();
             JugadorNegocio jNegocio = new JugadorNegocio();
-            dgvPerfiles.DataSource = jNegocio.listar();
+            perfiles = jNegocio.listar();
+            dgvPerfiles.DataSource = perfiles;
             dgvJugadores.DataSource = jugadores;
+            ocultarColumnas();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -35,6 +39,7 @@ namespace Generala
                 Jugador seleccionado = (Jugador)dgvPerfiles.CurrentRow.DataBoundItem;
                 jugadores.Add(seleccionado);
                 refreshDgv(dgvJugadores, jugadores);
+                ocultarColumnas();
             }
         }
 
@@ -42,6 +47,22 @@ namespace Generala
         {
             dgv.DataSource = null;
             dgv.DataSource = dataSource;
+        }
+        private void ocultarColumnas()
+        {
+            dgvPerfiles.Columns["Id"].Visible = false;
+            dgvJugadores.Columns["Id"].Visible = false;
+
+
+        }
+
+        private void btnEliminarPerfil_Click(object sender, EventArgs e)
+        {
+            Jugador seleccionado = (Jugador)dgvPerfiles.CurrentRow.DataBoundItem;
+            Jugador encontrado = perfiles.Find(x => x.Nombre == seleccionado.Nombre);
+            perfiles.Remove(encontrado);
+            refreshDgv(dgvPerfiles, perfiles);
+            ocultarColumnas();
         }
     }
 }

@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPerfiles = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvJugadores = new System.Windows.Forms.DataGridView();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
+            this.btnEliminarPerfil = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerfiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJugadores)).BeginInit();
             this.SuspendLayout();
@@ -45,8 +48,10 @@
             this.dgvPerfiles.Location = new System.Drawing.Point(53, 33);
             this.dgvPerfiles.MultiSelect = false;
             this.dgvPerfiles.Name = "dgvPerfiles";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPerfiles.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPerfiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPerfiles.Size = new System.Drawing.Size(240, 150);
+            this.dgvPerfiles.Size = new System.Drawing.Size(344, 150);
             this.dgvPerfiles.TabIndex = 0;
             // 
             // btnAgregar
@@ -56,7 +61,7 @@
             this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(77, 210);
+            this.btnAgregar.Location = new System.Drawing.Point(190, 205);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 1;
@@ -72,15 +77,17 @@
             this.dgvJugadores.Location = new System.Drawing.Point(53, 250);
             this.dgvJugadores.MultiSelect = false;
             this.dgvJugadores.Name = "dgvJugadores";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvJugadores.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvJugadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvJugadores.Size = new System.Drawing.Size(240, 150);
+            this.dgvJugadores.Size = new System.Drawing.Size(344, 150);
             this.dgvJugadores.TabIndex = 2;
             // 
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.Khaki;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNuevo.Location = new System.Drawing.Point(187, 210);
+            this.btnNuevo.Location = new System.Drawing.Point(435, 33);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 3;
@@ -91,19 +98,32 @@
             // 
             this.btnIniciar.BackColor = System.Drawing.Color.Khaki;
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnIniciar.Location = new System.Drawing.Point(121, 420);
+            this.btnIniciar.Location = new System.Drawing.Point(172, 415);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(103, 23);
             this.btnIniciar.TabIndex = 4;
             this.btnIniciar.Text = "Comenzar Partida";
             this.btnIniciar.UseVisualStyleBackColor = false;
             // 
+            // btnEliminarPerfil
+            // 
+            this.btnEliminarPerfil.BackColor = System.Drawing.Color.Khaki;
+            this.btnEliminarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminarPerfil.Location = new System.Drawing.Point(435, 111);
+            this.btnEliminarPerfil.Name = "btnEliminarPerfil";
+            this.btnEliminarPerfil.Size = new System.Drawing.Size(87, 23);
+            this.btnEliminarPerfil.TabIndex = 5;
+            this.btnEliminarPerfil.Text = "Eliminar Perfil";
+            this.btnEliminarPerfil.UseVisualStyleBackColor = false;
+            this.btnEliminarPerfil.Click += new System.EventHandler(this.btnEliminarPerfil_Click);
+            // 
             // Lobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.ClientSize = new System.Drawing.Size(345, 458);
+            this.ClientSize = new System.Drawing.Size(549, 458);
+            this.Controls.Add(this.btnEliminarPerfil);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dgvJugadores);
@@ -126,5 +146,6 @@
         private System.Windows.Forms.DataGridView dgvJugadores;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnIniciar;
+        private System.Windows.Forms.Button btnEliminarPerfil;
     }
 }
