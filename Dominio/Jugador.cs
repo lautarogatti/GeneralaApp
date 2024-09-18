@@ -15,10 +15,6 @@ namespace Dominio
 
         //private List<Categoria> puntajes;
 
-        public Jugador(string nombre) {
-            this.Nombre = nombre;
-        }
-
         /*public void setPuntajes(List<Categoria> lista)
         {
             puntajes = lista;

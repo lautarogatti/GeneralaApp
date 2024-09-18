@@ -12,12 +12,32 @@ namespace Negocio
         public List<Jugador> listar()
         {
             List<Jugador> lista = new List<Jugador>();
-            Jugador j1 = new Jugador("Pancho");
-            Jugador j2 = new Jugador("Corcho");
-            Jugador j3 = new Jugador("Nicox");
-            lista.Add(j1);
-            lista.Add(j2);
-            lista.Add(j3);
+            AccesoDatos datos = new AccesoDatos();
+            datos.setearConsulta("SELECT id,nombre,partidasGanadas,partidasJugadas FROM jugadores");
+            try
+            {
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Jugador aux = new Jugador();
+                    aux.Id = (int)datos.Lector["id"];
+                    aux.Nombre = (string)datos.Lector["nombre"];
+                    aux.PartidasGanadas = (int)datos.Lector["partidasGanadas"];
+                    aux.PartidasJugadas = (int)datos.Lector["partidasJugadas"];
+
+                    lista.Add(aux);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
             return lista;
         }
     }

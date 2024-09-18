@@ -43,6 +43,19 @@ namespace Generala
             }
         }
 
+        private void btnEliminarPerfil_Click(object sender, EventArgs e)
+        {
+            if (dgvPerfiles.CurrentRow != null)
+            {
+                Jugador seleccionado = (Jugador)dgvPerfiles.CurrentRow.DataBoundItem;
+                Jugador encontrado = perfiles.Find(x => x.Nombre == seleccionado.Nombre);
+                perfiles.Remove(encontrado);
+                refreshDgv(dgvPerfiles, perfiles);
+                ocultarColumnas();
+            }
+                
+        }
+
         private void refreshDgv(DataGridView dgv, List<Jugador> dataSource)
         {
             dgv.DataSource = null;
@@ -56,13 +69,9 @@ namespace Generala
 
         }
 
-        private void btnEliminarPerfil_Click(object sender, EventArgs e)
+        private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Jugador seleccionado = (Jugador)dgvPerfiles.CurrentRow.DataBoundItem;
-            Jugador encontrado = perfiles.Find(x => x.Nombre == seleccionado.Nombre);
-            perfiles.Remove(encontrado);
-            refreshDgv(dgvPerfiles, perfiles);
-            ocultarColumnas();
+
         }
     }
 }
