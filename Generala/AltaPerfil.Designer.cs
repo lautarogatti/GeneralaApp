@@ -71,7 +71,10 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txbNombre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AltaPerfil";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AltaPerfil";
             this.ResumeLayout(false);
             this.PerformLayout();

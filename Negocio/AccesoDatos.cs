@@ -19,7 +19,7 @@ namespace Negocio
         }
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server = .\\SQLEXPRESS; database = BddgGenerala; integrated security = true");
+            conexion = new SqlConnection("server = .\\SQLEXPRESS; database = GeneralaDb; integrated security = true");
             comando = new SqlCommand();
         }
         public void setearConsulta(string consulta){
@@ -42,7 +42,7 @@ namespace Negocio
         }
         public void cerrarConexion()
         {
-            if (lector == null)
+            if (lector != null)
                 lector.Close();
             conexion.Close();
         }

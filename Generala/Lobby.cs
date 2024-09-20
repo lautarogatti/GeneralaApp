@@ -15,7 +15,7 @@ namespace Generala
 {
     public partial class Lobby : Form
     {
-        private List<Jugador> jugadores;
+        private BindingList<Jugador> jugadores;
         private List<Jugador> perfiles;
         public Lobby()
         {
@@ -24,7 +24,7 @@ namespace Generala
 
         private void Lobby_Load(object sender, EventArgs e)
         {
-            jugadores = new List<Jugador>();
+            jugadores = new BindingList<Jugador>();
             JugadorNegocio jNegocio = new JugadorNegocio();
             perfiles = jNegocio.listar();
             dgvPerfiles.DataSource = perfiles;
@@ -38,7 +38,8 @@ namespace Generala
             {
                 Jugador seleccionado = (Jugador)dgvPerfiles.CurrentRow.DataBoundItem;
                 jugadores.Add(seleccionado);
-                refreshDgv(dgvJugadores, jugadores);
+                //refreshDgv(dgvJugadores, jugadores);
+                dgvJugadores.DataSource = jugadores;
                 ocultarColumnas();
             }
         }
@@ -47,13 +48,25 @@ namespace Generala
         {
             if (dgvPerfiles.CurrentRow != null)
             {
+                JugadorNegocio negocio = new JugadorNegocio();
                 Jugador seleccionado = (Jugador)dgvPerfiles.CurrentRow.DataBoundItem;
-                Jugador encontrado = perfiles.Find(x => x.Nombre == seleccionado.Nombre);
-                perfiles.Remove(encontrado);
-                refreshDgv(dgvPerfiles, perfiles);
-                ocultarColumnas();
+                DialogResult validacion = MessageBox.Show("Esta seguro que desea eliminar este perfil?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (validacion == DialogResult.Yes)
+                {
+                    try
+                    {
+                        negocio.eliminar(seleccionado);
+                        perfiles = negocio.listar();
+                        refreshDgv(dgvPerfiles, perfiles);
+                        ocultarColumnas();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
             }
-                
+
         }
 
         private void refreshDgv(DataGridView dgv, List<Jugador> dataSource)
@@ -71,7 +84,12 @@ namespace Generala
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-
+            JugadorNegocio negocio = new JugadorNegocio();
+            AltaPerfil alta = new AltaPerfil();
+            alta.ShowDialog();
+            perfiles = negocio.listar();
+            refreshDgv(dgvPerfiles, perfiles);
+            ocultarColumnas();
         }
     }
 }

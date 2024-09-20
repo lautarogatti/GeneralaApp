@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +21,19 @@ namespace Generala
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            JugadorNegocio negocio = new JugadorNegocio();
+            string nuevoNombre = txbNombre.Text;
+            Jugador nuevo = new Jugador();
+            nuevo.Nombre = nuevoNombre;
+            try
+            {
+                negocio.agregar(nuevo);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

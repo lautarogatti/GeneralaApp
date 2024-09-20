@@ -40,5 +40,46 @@ namespace Negocio
             }
             return lista;
         }
+
+        public void agregar(Jugador jugador)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("insert into jugadores (nombre, partidasGanadas, partidasJugadas) values (@nombre, 0, 0)");
+                //datos.setearParametro("@id", jugador.Id);
+                datos.setearParametro("@nombre", jugador.Nombre);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
+        public void eliminar(Jugador seleccionado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("DELETE from jugadores WHERE id = @id");
+                datos.setearParametro("@id", seleccionado.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

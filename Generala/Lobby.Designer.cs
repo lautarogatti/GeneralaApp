@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPerfiles = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvJugadores = new System.Windows.Forms.DataGridView();
@@ -48,10 +48,10 @@
             this.dgvPerfiles.Location = new System.Drawing.Point(53, 33);
             this.dgvPerfiles.MultiSelect = false;
             this.dgvPerfiles.Name = "dgvPerfiles";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPerfiles.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPerfiles.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPerfiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPerfiles.Size = new System.Drawing.Size(344, 150);
+            this.dgvPerfiles.Size = new System.Drawing.Size(360, 150);
             this.dgvPerfiles.TabIndex = 0;
             // 
             // btnAgregar
@@ -77,17 +77,17 @@
             this.dgvJugadores.Location = new System.Drawing.Point(53, 250);
             this.dgvJugadores.MultiSelect = false;
             this.dgvJugadores.Name = "dgvJugadores";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvJugadores.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvJugadores.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvJugadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvJugadores.Size = new System.Drawing.Size(344, 150);
+            this.dgvJugadores.Size = new System.Drawing.Size(360, 150);
             this.dgvJugadores.TabIndex = 2;
             // 
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.Khaki;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNuevo.Location = new System.Drawing.Point(435, 33);
+            this.btnNuevo.Location = new System.Drawing.Point(441, 64);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 3;
@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(549, 458);
             this.Controls.Add(this.btnEliminarPerfil);
             this.Controls.Add(this.btnIniciar);
@@ -130,6 +130,8 @@
             this.Controls.Add(this.dgvJugadores);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvPerfiles);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Lobby";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lobby";
