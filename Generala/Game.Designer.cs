@@ -40,7 +40,7 @@
             // 
             this.lblDadoUno.AutoSize = true;
             this.lblDadoUno.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadoUno.Location = new System.Drawing.Point(149, 172);
+            this.lblDadoUno.Location = new System.Drawing.Point(159, 141);
             this.lblDadoUno.Name = "lblDadoUno";
             this.lblDadoUno.Size = new System.Drawing.Size(77, 108);
             this.lblDadoUno.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // btnDadoUno
             // 
-            this.btnDadoUno.Location = new System.Drawing.Point(343, 298);
+            this.btnDadoUno.Location = new System.Drawing.Point(343, 267);
             this.btnDadoUno.Name = "btnDadoUno";
             this.btnDadoUno.Size = new System.Drawing.Size(75, 23);
             this.btnDadoUno.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             this.lblDadoDos.AutoSize = true;
             this.lblDadoDos.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadoDos.Location = new System.Drawing.Point(263, 172);
+            this.lblDadoDos.Location = new System.Drawing.Point(260, 141);
             this.lblDadoDos.Name = "lblDadoDos";
             this.lblDadoDos.Size = new System.Drawing.Size(77, 108);
             this.lblDadoDos.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             this.lblDadoTres.AutoSize = true;
             this.lblDadoTres.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadoTres.Location = new System.Drawing.Point(359, 172);
+            this.lblDadoTres.Location = new System.Drawing.Point(359, 141);
             this.lblDadoTres.Name = "lblDadoTres";
             this.lblDadoTres.Size = new System.Drawing.Size(77, 108);
             this.lblDadoTres.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             this.lblDadoCuatro.AutoSize = true;
             this.lblDadoCuatro.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadoCuatro.Location = new System.Drawing.Point(455, 172);
+            this.lblDadoCuatro.Location = new System.Drawing.Point(459, 140);
             this.lblDadoCuatro.Name = "lblDadoCuatro";
             this.lblDadoCuatro.Size = new System.Drawing.Size(77, 108);
             this.lblDadoCuatro.TabIndex = 4;
@@ -90,7 +90,7 @@
             // 
             this.lblDadoCinco.AutoSize = true;
             this.lblDadoCinco.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadoCinco.Location = new System.Drawing.Point(563, 172);
+            this.lblDadoCinco.Location = new System.Drawing.Point(557, 140);
             this.lblDadoCinco.Name = "lblDadoCinco";
             this.lblDadoCinco.Size = new System.Drawing.Size(77, 108);
             this.lblDadoCinco.TabIndex = 5;
@@ -100,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(790, 420);
             this.Controls.Add(this.lblDadoCinco);
             this.Controls.Add(this.lblDadoCuatro);
             this.Controls.Add(this.lblDadoTres);
@@ -109,6 +109,7 @@
             this.Controls.Add(this.lblDadoUno);
             this.Name = "Game";
             this.Text = "Game";
+            this.Load += new System.EventHandler(this.Game_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

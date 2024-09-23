@@ -17,6 +17,7 @@ namespace Generala
     {
         private BindingList<Jugador> jugadores;
         private List<Jugador> perfiles;
+        private int maxJugadores = 12;
         public Lobby()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace Generala
             dgvPerfiles.DataSource = perfiles;
             dgvJugadores.DataSource = jugadores;
             ocultarColumnas();
+            actualizarEstadoLobby();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -41,6 +43,7 @@ namespace Generala
                 //refreshDgv(dgvJugadores, jugadores);
                 dgvJugadores.DataSource = jugadores;
                 ocultarColumnas();
+                actualizarEstadoLobby();
             }
         }
 
@@ -90,6 +93,45 @@ namespace Generala
             perfiles = negocio.listar();
             refreshDgv(dgvPerfiles, perfiles);
             ocultarColumnas();
+        }
+
+        private void btnQuitarLobby_Click(object sender, EventArgs e)
+        {
+            if(dgvJugadores.CurrentRow != null)
+            {
+            Jugador seleccionado = (Jugador)dgvJugadores.CurrentRow.DataBoundItem;
+            jugadores.Remove(seleccionado);
+                actualizarEstadoLobby();
+            }
+        }
+
+        private void btnIniciar_Click(object sender, EventArgs e)
+        {
+            Game partida = new Game(jugadores, contarJugadores());
+            partida.Show();
+        }
+
+        private int contarJugadores()
+        {
+            int cantidad = 0;
+            foreach (Jugador item in jugadores)
+            {
+                cantidad++;
+            }
+            return cantidad;
+        }
+
+        private string estadoActualLobby()
+        {
+            string mensaje;
+            int cantidad = contarJugadores();
+            mensaje = cantidad + "/" + maxJugadores;
+            return mensaje;
+        }
+
+        private void actualizarEstadoLobby()
+        {
+            lblEstadoLobby.Text = estadoActualLobby();
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Generala
         private void btnJugar_Click(object sender, EventArgs e)
         {
             Lobby lobby = new Lobby();
+            this.Hide();
             lobby.ShowDialog();
         }
     }

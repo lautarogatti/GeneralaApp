@@ -13,9 +13,17 @@ namespace Generala
 {
     public partial class Game : Form
     {
-        public Game()
+        private BindingList<Jugador> Jugadores;
+        int cantJugadores;
+        public Game(BindingList<Jugador> jugadores, int cantJugadores)
         {
             InitializeComponent();
+            this.Jugadores = jugadores;
+            this.cantJugadores = cantJugadores;
+        }
+        private void Game_Load(object sender, EventArgs e)
+        {
+            cerrarLobby();
         }
 
         private void btnDadoUno_Click(object sender, EventArgs e)
@@ -26,6 +34,17 @@ namespace Generala
             lblDadoTres.Text = dadoUno.tirar().ToString();
             lblDadoCuatro.Text = dadoUno.tirar().ToString();
             lblDadoCinco.Text = dadoUno.tirar().ToString();
+        }
+
+        private void cerrarLobby()
+        {
+            foreach (Form item in Application.OpenForms)
+            {
+                if(item.GetType() == typeof(Lobby))
+                {
+                    item.Close();
+                }
+            }
         }
     }
 }
