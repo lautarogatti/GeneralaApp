@@ -111,10 +111,23 @@
       <Project>{89c34816-2f46-4ecd-9b4e-50ed4c44ce78}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{6edeff80-aa82-419d-942b-024be583e1b8}</Project>
+      <Name>Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
       <Project>{51379807-9f17-4632-b04c-6c59b68a19b6}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\img\dados\cinco.jpg" />
+    <Content Include="assets\img\dados\cuatro.jpg" />
+    <Content Include="assets\img\dados\dos.jpg" />
+    <Content Include="assets\img\dados\random.gif" />
+    <Content Include="assets\img\dados\seis.jpg" />
+    <Content Include="assets\img\dados\tres.jpg" />
+    <Content Include="assets\img\dados\uno.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

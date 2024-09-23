@@ -44,6 +44,7 @@
     <Compile Include="Categoria.cs" />
     <Compile Include="Dado.cs" />
     <Compile Include="Jugador.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

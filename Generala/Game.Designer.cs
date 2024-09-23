@@ -28,100 +28,144 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDadoUno = new System.Windows.Forms.Label();
             this.btnDadoUno = new System.Windows.Forms.Button();
-            this.lblDadoDos = new System.Windows.Forms.Label();
-            this.lblDadoTres = new System.Windows.Forms.Label();
-            this.lblDadoCuatro = new System.Windows.Forms.Label();
-            this.lblDadoCinco = new System.Windows.Forms.Label();
+            this.pbxDUno = new System.Windows.Forms.PictureBox();
+            this.pbxDDos = new System.Windows.Forms.PictureBox();
+            this.pbxDTres = new System.Windows.Forms.PictureBox();
+            this.pbxDCuatro = new System.Windows.Forms.PictureBox();
+            this.pbxDCinco = new System.Windows.Forms.PictureBox();
+            this.btnTirarSeleccionados = new System.Windows.Forms.Button();
+            this.dgvScores = new System.Windows.Forms.DataGridView();
+            this.lblRondas = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDUno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDDos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDTres)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDCuatro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDCinco)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvScores)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblDadoUno
-            // 
-            this.lblDadoUno.AutoSize = true;
-            this.lblDadoUno.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadoUno.Location = new System.Drawing.Point(159, 141);
-            this.lblDadoUno.Name = "lblDadoUno";
-            this.lblDadoUno.Size = new System.Drawing.Size(77, 108);
-            this.lblDadoUno.TabIndex = 0;
-            this.lblDadoUno.Text = "-\r\n";
             // 
             // btnDadoUno
             // 
-            this.btnDadoUno.Location = new System.Drawing.Point(343, 267);
+            this.btnDadoUno.Location = new System.Drawing.Point(469, 321);
             this.btnDadoUno.Name = "btnDadoUno";
-            this.btnDadoUno.Size = new System.Drawing.Size(75, 23);
+            this.btnDadoUno.Size = new System.Drawing.Size(103, 41);
             this.btnDadoUno.TabIndex = 1;
-            this.btnDadoUno.Text = "Tirar";
+            this.btnDadoUno.Text = "Tirar Todos Los Dados";
             this.btnDadoUno.UseVisualStyleBackColor = true;
             this.btnDadoUno.Click += new System.EventHandler(this.btnDadoUno_Click);
             // 
-            // lblDadoDos
+            // pbxDUno
             // 
-            this.lblDadoDos.AutoSize = true;
-            this.lblDadoDos.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadoDos.Location = new System.Drawing.Point(260, 141);
-            this.lblDadoDos.Name = "lblDadoDos";
-            this.lblDadoDos.Size = new System.Drawing.Size(77, 108);
-            this.lblDadoDos.TabIndex = 2;
-            this.lblDadoDos.Text = "-\r\n";
+            this.pbxDUno.Location = new System.Drawing.Point(143, 50);
+            this.pbxDUno.Name = "pbxDUno";
+            this.pbxDUno.Size = new System.Drawing.Size(167, 152);
+            this.pbxDUno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxDUno.TabIndex = 2;
+            this.pbxDUno.TabStop = false;
             // 
-            // lblDadoTres
+            // pbxDDos
             // 
-            this.lblDadoTres.AutoSize = true;
-            this.lblDadoTres.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadoTres.Location = new System.Drawing.Point(359, 141);
-            this.lblDadoTres.Name = "lblDadoTres";
-            this.lblDadoTres.Size = new System.Drawing.Size(77, 108);
-            this.lblDadoTres.TabIndex = 3;
-            this.lblDadoTres.Text = "-\r\n";
+            this.pbxDDos.Location = new System.Drawing.Point(393, 50);
+            this.pbxDDos.Name = "pbxDDos";
+            this.pbxDDos.Size = new System.Drawing.Size(162, 152);
+            this.pbxDDos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxDDos.TabIndex = 3;
+            this.pbxDDos.TabStop = false;
             // 
-            // lblDadoCuatro
+            // pbxDTres
             // 
-            this.lblDadoCuatro.AutoSize = true;
-            this.lblDadoCuatro.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadoCuatro.Location = new System.Drawing.Point(459, 140);
-            this.lblDadoCuatro.Name = "lblDadoCuatro";
-            this.lblDadoCuatro.Size = new System.Drawing.Size(77, 108);
-            this.lblDadoCuatro.TabIndex = 4;
-            this.lblDadoCuatro.Text = "-\r\n";
+            this.pbxDTres.Location = new System.Drawing.Point(654, 50);
+            this.pbxDTres.Name = "pbxDTres";
+            this.pbxDTres.Size = new System.Drawing.Size(167, 152);
+            this.pbxDTres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxDTres.TabIndex = 4;
+            this.pbxDTres.TabStop = false;
             // 
-            // lblDadoCinco
+            // pbxDCuatro
             // 
-            this.lblDadoCinco.AutoSize = true;
-            this.lblDadoCinco.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadoCinco.Location = new System.Drawing.Point(557, 140);
-            this.lblDadoCinco.Name = "lblDadoCinco";
-            this.lblDadoCinco.Size = new System.Drawing.Size(77, 108);
-            this.lblDadoCinco.TabIndex = 5;
-            this.lblDadoCinco.Text = "-\r\n";
+            this.pbxDCuatro.Location = new System.Drawing.Point(911, 50);
+            this.pbxDCuatro.Name = "pbxDCuatro";
+            this.pbxDCuatro.Size = new System.Drawing.Size(167, 152);
+            this.pbxDCuatro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxDCuatro.TabIndex = 5;
+            this.pbxDCuatro.TabStop = false;
+            // 
+            // pbxDCinco
+            // 
+            this.pbxDCinco.Location = new System.Drawing.Point(1150, 50);
+            this.pbxDCinco.Name = "pbxDCinco";
+            this.pbxDCinco.Size = new System.Drawing.Size(171, 152);
+            this.pbxDCinco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxDCinco.TabIndex = 6;
+            this.pbxDCinco.TabStop = false;
+            // 
+            // btnTirarSeleccionados
+            // 
+            this.btnTirarSeleccionados.Location = new System.Drawing.Point(730, 321);
+            this.btnTirarSeleccionados.Name = "btnTirarSeleccionados";
+            this.btnTirarSeleccionados.Size = new System.Drawing.Size(113, 39);
+            this.btnTirarSeleccionados.TabIndex = 7;
+            this.btnTirarSeleccionados.Text = "Tirar Dados Seleccionados";
+            this.btnTirarSeleccionados.UseVisualStyleBackColor = true;
+            // 
+            // dgvScores
+            // 
+            this.dgvScores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvScores.Location = new System.Drawing.Point(35, 404);
+            this.dgvScores.Name = "dgvScores";
+            this.dgvScores.Size = new System.Drawing.Size(1395, 256);
+            this.dgvScores.TabIndex = 8;
+            // 
+            // lblRondas
+            // 
+            this.lblRondas.AutoSize = true;
+            this.lblRondas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRondas.Location = new System.Drawing.Point(75, 367);
+            this.lblRondas.Name = "lblRondas";
+            this.lblRondas.Size = new System.Drawing.Size(54, 25);
+            this.lblRondas.TabIndex = 9;
+            this.lblRondas.Text = "1/12";
             // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 420);
-            this.Controls.Add(this.lblDadoCinco);
-            this.Controls.Add(this.lblDadoCuatro);
-            this.Controls.Add(this.lblDadoTres);
-            this.Controls.Add(this.lblDadoDos);
+            this.ClientSize = new System.Drawing.Size(1442, 672);
+            this.Controls.Add(this.lblRondas);
+            this.Controls.Add(this.dgvScores);
+            this.Controls.Add(this.btnTirarSeleccionados);
+            this.Controls.Add(this.pbxDCinco);
+            this.Controls.Add(this.pbxDCuatro);
+            this.Controls.Add(this.pbxDTres);
+            this.Controls.Add(this.pbxDDos);
+            this.Controls.Add(this.pbxDUno);
             this.Controls.Add(this.btnDadoUno);
-            this.Controls.Add(this.lblDadoUno);
             this.Name = "Game";
             this.Text = "Game";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game_FormClosed);
             this.Load += new System.EventHandler(this.Game_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDUno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDDos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDTres)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDCuatro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDCinco)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvScores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblDadoUno;
         private System.Windows.Forms.Button btnDadoUno;
-        private System.Windows.Forms.Label lblDadoDos;
-        private System.Windows.Forms.Label lblDadoTres;
-        private System.Windows.Forms.Label lblDadoCuatro;
-        private System.Windows.Forms.Label lblDadoCinco;
+        private System.Windows.Forms.PictureBox pbxDUno;
+        private System.Windows.Forms.PictureBox pbxDDos;
+        private System.Windows.Forms.PictureBox pbxDTres;
+        private System.Windows.Forms.PictureBox pbxDCuatro;
+        private System.Windows.Forms.PictureBox pbxDCinco;
+        private System.Windows.Forms.Button btnTirarSeleccionados;
+        private System.Windows.Forms.DataGridView dgvScores;
+        private System.Windows.Forms.Label lblRondas;
     }
 }
