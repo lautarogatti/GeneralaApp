@@ -46,6 +46,7 @@
             // 
             // btnJugar
             // 
+            this.btnJugar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnJugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
             this.btnJugar.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnJugar.FlatAppearance.BorderColor = System.Drawing.Color.Khaki;

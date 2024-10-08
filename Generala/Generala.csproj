@@ -111,10 +111,31 @@
       <Project>{89c34816-2f46-4ecd-9b4e-50ed4c44ce78}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{6edeff80-aa82-419d-942b-024be583e1b8}</Project>
+      <Name>Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
       <Project>{51379807-9f17-4632-b04c-6c59b68a19b6}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\img\1.jpg" />
+    <Content Include="assets\img\1alt.jpg" />
+    <Content Include="assets\img\2.jpg" />
+    <Content Include="assets\img\2alt.jpg" />
+    <Content Include="assets\img\3.jpg" />
+    <Content Include="assets\img\3alt.jpg" />
+    <Content Include="assets\img\4.jpg" />
+    <Content Include="assets\img\4alt.jpg" />
+    <Content Include="assets\img\5.jpg" />
+    <Content Include="assets\img\5alt.jpg" />
+    <Content Include="assets\img\6.jpg" />
+    <Content Include="assets\img\6alt.jpg" />
+    <Content Include="assets\img\random.gif" />
+    <Content Include="assets\img\roca.gif" />
+    <Content Include="assets\img\roca.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

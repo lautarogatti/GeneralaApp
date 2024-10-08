@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Helpers;
 using Negocio;
 
 namespace Generala
@@ -79,9 +80,8 @@ namespace Generala
         }
         private void ocultarColumnas()
         {
-            dgvPerfiles.Columns["Id"].Visible = false;
-            dgvJugadores.Columns["Id"].Visible = false;
-
+            Helper.ocultarColumna(dgvPerfiles, "Id");
+            Helper.ocultarColumna(dgvJugadores, "Id");
 
         }
 
@@ -109,6 +109,7 @@ namespace Generala
         {
             Game partida = new Game(jugadores, contarJugadores());
             partida.Show();
+            this.Close();
         }
 
         private int contarJugadores()
