@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnDadoUno = new System.Windows.Forms.Button();
             this.pbxDUno = new System.Windows.Forms.PictureBox();
             this.pbxDDos = new System.Windows.Forms.PictureBox();
@@ -56,6 +56,8 @@
             this.btnAnotarJuego = new System.Windows.Forms.Button();
             this.lblResolucion = new System.Windows.Forms.Label();
             this.lblTiradaActual = new System.Windows.Forms.Label();
+            this.btnTachar = new System.Windows.Forms.Button();
+            this.cmbCategorias = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDUno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDDos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDTres)).BeginInit();
@@ -134,31 +136,31 @@
             this.dgvScores.AllowUserToResizeColumns = false;
             this.dgvScores.AllowUserToResizeRows = false;
             this.dgvScores.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvScores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvScores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvScores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvScores.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvScores.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvScores.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvScores.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dgvScores.Location = new System.Drawing.Point(65, 408);
             this.dgvScores.MultiSelect = false;
             this.dgvScores.Name = "dgvScores";
             this.dgvScores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvScores.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvScores.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvScores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvScores.Size = new System.Drawing.Size(1140, 198);
             this.dgvScores.TabIndex = 8;
@@ -340,12 +342,33 @@
             this.lblTiradaActual.TabIndex = 28;
             this.lblTiradaActual.Text = "1/3";
             // 
+            // btnTachar
+            // 
+            this.btnTachar.Location = new System.Drawing.Point(1097, 358);
+            this.btnTachar.Name = "btnTachar";
+            this.btnTachar.Size = new System.Drawing.Size(75, 23);
+            this.btnTachar.TabIndex = 29;
+            this.btnTachar.Text = "Tachar";
+            this.btnTachar.UseVisualStyleBackColor = true;
+            this.btnTachar.Click += new System.EventHandler(this.btnTachar_Click);
+            // 
+            // cmbCategorias
+            // 
+            this.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategorias.FormattingEnabled = true;
+            this.cmbCategorias.Location = new System.Drawing.Point(1072, 381);
+            this.cmbCategorias.Name = "cmbCategorias";
+            this.cmbCategorias.Size = new System.Drawing.Size(121, 21);
+            this.cmbCategorias.TabIndex = 30;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1262, 623);
+            this.Controls.Add(this.cmbCategorias);
+            this.Controls.Add(this.btnTachar);
             this.Controls.Add(this.lblTiradaActual);
             this.Controls.Add(this.lblResolucion);
             this.Controls.Add(this.ckbDCinco);
@@ -411,5 +434,7 @@
         private System.Windows.Forms.Button btnAnotarJuego;
         private System.Windows.Forms.Label lblResolucion;
         private System.Windows.Forms.Label lblTiradaActual;
+        private System.Windows.Forms.Button btnTachar;
+        private System.Windows.Forms.ComboBox cmbCategorias;
     }
 }

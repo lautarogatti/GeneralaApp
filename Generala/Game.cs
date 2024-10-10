@@ -84,12 +84,12 @@ namespace Generala
             iniciarPbx();
             iniciarGeneralaClassic();
             Helper.ocultarColumna(dgvScores, "Id");
-            Helper.cargarImagen("C:\\Users\\Cloud\\Desktop\\proyectoGenerala\\GeneralaApp\\Generala\\assets\\img\\roca.gif", pbxJumbotron);
+            Helper.cargarImagen("C:\\Users\\Usuario\\Desktop\\proyecto-generala\\GeneralaApp\\assets\\img\\roca.gif", pbxJumbotron);
             mostrarResolucion();
             actualizarLblTiradaActual();
         }
 
-        private void btnDadoUno_Click(object sender, EventArgs e)
+        private void btnDadoUno_Click(object sender, EventArgs e)  //boton tirar
         {
             if (tiradaActual == 1)
             {
@@ -100,6 +100,8 @@ namespace Generala
                 deseleccionarDados(checkboxes);
                 escondeBotonTirarSiesUltimaTirada();
                 EsconderOMostrarBtnAnotar();
+                mostrarOEsconderBtnTachar();
+                mostrarOEsconderCmbCategorias();
             }
             else if (hayDadosSeleccionados())
             {
@@ -110,6 +112,8 @@ namespace Generala
                 deseleccionarDados(checkboxes);
                 escondeBotonTirarSiesUltimaTirada();
                 EsconderOMostrarBtnAnotar();
+                mostrarOEsconderBtnTachar();
+                mostrarOEsconderCmbCategorias();
             }
         }
 
@@ -128,7 +132,7 @@ namespace Generala
         {
             for (int i = 0; i < 5; i++)
             {
-                tiradaDados[i] = i + 1;
+                tiradaDados[i] = 1;
             }
             actualizarPbx();
         }
@@ -141,6 +145,32 @@ namespace Generala
                 finalizarTurno();
                 actualizarLblTiradaActual();
                 escondeBotonTirarSiesUltimaTirada();
+                mostrarOEsconderBtnTachar();
+                mostrarOEsconderCmbCategorias();
+                actualizarlBLTurnoActual();
+                actualizarLblRondaActual();
+                turnoActualEnDgv();
+                dgvScores.DataSource = players;
+                deseleccionarDados(checkboxes);
+                iniciarPbx();
+                EsconderOMostrarBtnAnotar();
+            }
+
+        }
+
+
+        private void btnTachar_Click(object sender, EventArgs e)
+        {
+            string seleccionado = cmbCategorias.Text;
+            if( seleccionado != "")
+            {
+                tachar(seleccionado, turnos[turnoActual]);
+                actualizarRondaActual();
+                finalizarTurno();
+                actualizarLblTiradaActual();
+                escondeBotonTirarSiesUltimaTirada();
+                mostrarOEsconderBtnTachar();
+                mostrarOEsconderCmbCategorias();
                 actualizarlBLTurnoActual();
                 actualizarLblRondaActual();
                 turnoActualEnDgv();
@@ -248,7 +278,7 @@ namespace Generala
         //funcion encargada de cargar los picturebox con la imagen de dado randomizado
         private void iniciarPbx()
         {
-            string ruta = "C:\\Users\\Cloud\\Desktop\\proyectoGenerala\\GeneralaApp\\Generala\\assets\\img\\random.gif";
+            string ruta = "C:\\Users\\Usuario\\Desktop\\proyecto-generala\\GeneralaApp\\assets\\img\\random.gif";
             foreach (PictureBox pbx in pictureBoxes)
             {
                 Helper.cargarImagen(ruta, pbx);
@@ -264,6 +294,8 @@ namespace Generala
             definirTurnoActual();
             actualizarLblRondaActual();
             EsconderOMostrarBtnAnotar();
+            mostrarOEsconderBtnTachar();
+            mostrarOEsconderCmbCategorias();
         }
 
         //funcion que genera una tirada de dados y la retorna dentro de un vector de enteros
@@ -290,12 +322,12 @@ namespace Generala
 
         private string crearRuta(int index)
         {
-            string ruta = "C:\\Users\\Cloud\\Desktop\\proyectoGenerala\\GeneralaApp\\Generala\\assets\\img\\" + tiradaDados[index] + ".jpg";
+            string ruta = "C:\\Users\\Usuario\\Desktop\\proyecto-generala\\GeneralaApp\\assets\\img\\" + tiradaDados[index] + ".jpg";
             return ruta;
         }
         private string crearRutaAlt(int index)
         {
-            string ruta = "C:\\Users\\Cloud\\Desktop\\proyectoGenerala\\GeneralaApp\\Generala\\assets\\img\\" + tiradaDados[index] + "alt.jpg";
+            string ruta = "C:\\Users\\Usuario\\Desktop\\proyecto-generala\\GeneralaApp\\assets\\img\\" + tiradaDados[index] + "alt.jpg";
             return ruta;
         }
 
@@ -710,6 +742,19 @@ namespace Generala
                     return true;
                 }
             }
+            else if (juego == "generala" && player.Generala != "-" && player.GeneralaDoble == "-")
+            {
+                if (tiradaActual == 2)
+                {
+                    player.GeneralaDoble = (valorGenerala + 5).ToString();
+                    return true;
+                }
+                else
+                {
+                    player.GeneralaDoble = valorGenerala.ToString();
+                    return true;
+                }
+            }
             else if (juego == "poker" && player.Poker == "-")
             {
                 if (tiradaActual == 2)
@@ -906,6 +951,130 @@ namespace Generala
             else
             {
                 btnAnotar.Visible = true;
+            }
+        }
+        private void mostrarOEsconderBtnTachar()
+        {
+            if (tiradaActual > 3)
+            {
+                btnTachar.Visible = true;
+            }
+            else
+            {
+                btnTachar.Visible = false;
+            }
+        }
+        private void mostrarOEsconderCmbCategorias()
+        {
+            if (tiradaActual > 3)
+            {
+                actualizarCmbCategorias(turnos[turnoActual]);
+                cmbCategorias.Visible = true;
+            }
+            else
+            {
+                cmbCategorias.Visible = false;
+            }
+        }
+        private void actualizarCmbCategorias(Player player)
+        {
+            List<string> categorias = generarCategoriasLibres(player);
+            cmbCategorias.Items.Clear();
+            foreach (string categoria in categorias)
+            {
+                cmbCategorias.Items.Add(categoria);
+            }
+
+        }
+        private List<string> generarCategoriasLibres(Player player)
+        {
+            List<string> categorias = new List<string>();
+            if (player.Uno == "-")
+            {
+                categorias.Add("Uno");
+            }
+            if (player.Dos == "-")
+            {
+                categorias.Add("Dos");
+            }
+            if (player.Tres == "-")
+            {
+                categorias.Add("Tres");
+            }
+            if (player.Cuatro == "-")
+            {
+                categorias.Add("Cuatro");
+            }
+            if (player.Cinco == "-")
+            {
+                categorias.Add("Cinco");
+            }
+            if (player.Seis == "-")
+            {
+                categorias.Add("Seis");
+            }
+            if (player.Escalera == "-")
+            {
+                categorias.Add("Escalera");
+            }
+            if (player.Full == "-")
+            {
+                categorias.Add("Full");
+            }
+            if (player.Poker == "-")
+            {
+                categorias.Add("Poker");
+            }
+            if (player.Generala == "-")
+            {
+                categorias.Add("Generala");
+            }
+            if (player.GeneralaDoble == "-")
+            {
+                categorias.Add("Generala Doble");
+            }
+            return categorias;
+
+        }
+        private void tachar(string categoria, Player player)
+        {
+            switch (categoria)
+            {
+                case "Uno":
+                    player.Uno = "x";
+                    break;
+                case "Dos":
+                    player.Dos = "x";
+                    break;
+                case "Tres":
+                    player.Tres = "x";
+                    break;
+                case "Cuatro":
+                    player.Cuatro = "x";
+                    break;
+                case "Cinco":
+                    player.Cinco = "x";
+                    break;
+                case "Seis":
+                    player.Seis = "x";
+                    break;
+                case "Escalera":
+                    player.Escalera = "x";
+                    break;
+                case "Full":
+                    player.Full = "x";
+                    break;
+                case "Poker":
+                    player.Poker = "x";
+                    break;
+                case "Generala":
+                    player.Generala = "x";
+                    break;
+                case "Generala Doble":
+                    player.GeneralaDoble = "x";
+                    break;
+                default:
+                    break;
             }
         }
     }
