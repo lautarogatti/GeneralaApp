@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -70,11 +71,11 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="pantallaGanadores.cs">
+    <Compile Include="PantallaGanadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pantallaGanadores.Designer.cs">
-      <DependentUpon>pantallaGanadores.cs</DependentUpon>
+    <Compile Include="PantallaGanadores.Designer.cs">
+      <DependentUpon>PantallaGanadores.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,8 +91,8 @@
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pantallaGanadores.resx">
-      <DependentUpon>pantallaGanadores.cs</DependentUpon>
+    <EmbeddedResource Include="PantallaGanadores.resx">
+      <DependentUpon>PantallaGanadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

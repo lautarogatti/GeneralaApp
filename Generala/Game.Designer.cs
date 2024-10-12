@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -58,6 +59,7 @@
             this.lblTiradaActual = new System.Windows.Forms.Label();
             this.btnTachar = new System.Windows.Forms.Button();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbxDUno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDDos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDTres)).BeginInit();
@@ -162,7 +164,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvScores.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvScores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvScores.Size = new System.Drawing.Size(1140, 198);
+            this.dgvScores.Size = new System.Drawing.Size(1141, 198);
             this.dgvScores.TabIndex = 8;
             // 
             // lblRondas
@@ -366,7 +368,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1262, 623);
+            this.ClientSize = new System.Drawing.Size(1263, 623);
             this.Controls.Add(this.cmbCategorias);
             this.Controls.Add(this.btnTachar);
             this.Controls.Add(this.lblTiradaActual);
@@ -393,6 +395,7 @@
             this.Name = "Game";
             this.Text = "Game";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game_FormClosed);
             this.Load += new System.EventHandler(this.Game_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxDUno)).EndInit();
@@ -436,5 +439,6 @@
         private System.Windows.Forms.Label lblTiradaActual;
         private System.Windows.Forms.Button btnTachar;
         private System.Windows.Forms.ComboBox cmbCategorias;
+        private System.Windows.Forms.Timer timer1;
     }
 }

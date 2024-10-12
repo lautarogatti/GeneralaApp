@@ -34,17 +34,30 @@ namespace Generala
             ocultarColumnas();
             actualizarEstadoLobby();
         }
-
+        private bool estaEnLaLista(Jugador seleccionado, BindingList<Jugador> jugadores)
+        {
+            foreach (Jugador j in jugadores)
+            {
+                if( seleccionado.Nombre == j.Nombre)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (dgvPerfiles.CurrentRow.DataBoundItem != null)
             {
                 Jugador seleccionado = (Jugador)dgvPerfiles.CurrentRow.DataBoundItem;
-                jugadores.Add(seleccionado);
-                //refreshDgv(dgvJugadores, jugadores);
-                dgvJugadores.DataSource = jugadores;
-                ocultarColumnas();
-                actualizarEstadoLobby();
+                if( !estaEnLaLista( seleccionado, jugadores) && contarJugadores() < 12)
+                {
+                    jugadores.Add(seleccionado);
+                    dgvJugadores.DataSource = jugadores;
+                    ocultarColumnas();
+                    actualizarEstadoLobby();
+                }
+
             }
         }
 
@@ -107,9 +120,12 @@ namespace Generala
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
+            if(contarJugadores() >= 2 && contarJugadores() <= 12)
+            {
             Game partida = new Game(jugadores, contarJugadores());
             partida.Show();
             this.Close();
+            }
         }
 
         private int contarJugadores()

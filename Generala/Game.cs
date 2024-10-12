@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Helpers;
-
+using System.Configuration;
 namespace Generala
 {
     public partial class Game : Form
@@ -84,7 +84,7 @@ namespace Generala
             iniciarPbx();
             iniciarGeneralaClassic();
             Helper.ocultarColumna(dgvScores, "Id");
-            Helper.cargarImagen("C:\\Users\\Usuario\\Desktop\\proyecto-generala\\GeneralaApp\\assets\\img\\roca.gif", pbxJumbotron);
+            Helper.cargarImagen(ConfigurationManager.AppSettings["carpetaImagenes"] +"\\roca.gif", pbxJumbotron);
             mostrarResolucion();
             actualizarLblTiradaActual();
         }
@@ -278,7 +278,7 @@ namespace Generala
         //funcion encargada de cargar los picturebox con la imagen de dado randomizado
         private void iniciarPbx()
         {
-            string ruta = "C:\\Users\\Usuario\\Desktop\\proyecto-generala\\GeneralaApp\\assets\\img\\random.gif";
+            string ruta = ConfigurationManager.AppSettings["carpetaImagenes"] +"\\random.gif";
             foreach (PictureBox pbx in pictureBoxes)
             {
                 Helper.cargarImagen(ruta, pbx);
@@ -322,12 +322,12 @@ namespace Generala
 
         private string crearRuta(int index)
         {
-            string ruta = "C:\\Users\\Usuario\\Desktop\\proyecto-generala\\GeneralaApp\\assets\\img\\" + tiradaDados[index] + ".jpg";
+            string ruta = ConfigurationManager.AppSettings["carpetaImagenes"] + tiradaDados[index] + ".jpg";
             return ruta;
         }
         private string crearRutaAlt(int index)
         {
-            string ruta = "C:\\Users\\Usuario\\Desktop\\proyecto-generala\\GeneralaApp\\assets\\img\\" + tiradaDados[index] + "alt.jpg";
+            string ruta = ConfigurationManager.AppSettings["carpetaImagenes"] + tiradaDados[index] + "alt.jpg";
             return ruta;
         }
 
@@ -834,7 +834,9 @@ namespace Generala
         {
             if (rondaActual == 11 && turnoActual == cantJugadores - 1)
             {
-                MessageBox.Show("Terminó el juego");
+                PantallaGanadores pantallaGanadores = new PantallaGanadores();
+                pantallaGanadores.Show();
+                this.Close();
             }
             else if (turnoActual == cantJugadores - 1)
             {
@@ -1075,6 +1077,18 @@ namespace Generala
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void Game_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult validacion = MessageBox.Show("Esta seguro que desea cerrar la partida en curso? (Si cierra se perderá el curso de la partida)", "Cerrar partida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(validacion != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }

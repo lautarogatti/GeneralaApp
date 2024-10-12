@@ -1,6 +1,6 @@
 ﻿namespace Generala
 {
-    partial class pantallaGanadores
+    partial class PantallaGanadores
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,7 @@
             // dgvTablaScore
             // 
             this.dgvTablaScore.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTablaScore.Location = new System.Drawing.Point(251, 176);
+            this.dgvTablaScore.Location = new System.Drawing.Point(131, 97);
             this.dgvTablaScore.Name = "dgvTablaScore";
             this.dgvTablaScore.Size = new System.Drawing.Size(391, 193);
             this.dgvTablaScore.TabIndex = 0;
@@ -47,7 +47,7 @@
             // lblGanador
             // 
             this.lblGanador.AutoSize = true;
-            this.lblGanador.Location = new System.Drawing.Point(137, 90);
+            this.lblGanador.Location = new System.Drawing.Point(54, 37);
             this.lblGanador.Name = "lblGanador";
             this.lblGanador.Size = new System.Drawing.Size(74, 13);
             this.lblGanador.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // btnRanking
             // 
-            this.btnRanking.Location = new System.Drawing.Point(652, 469);
+            this.btnRanking.Location = new System.Drawing.Point(461, 368);
             this.btnRanking.Name = "btnRanking";
             this.btnRanking.Size = new System.Drawing.Size(75, 23);
             this.btnRanking.TabIndex = 2;
@@ -64,7 +64,7 @@
             // 
             // btnJugarDenuevo
             // 
-            this.btnJugarDenuevo.Location = new System.Drawing.Point(406, 469);
+            this.btnJugarDenuevo.Location = new System.Drawing.Point(272, 368);
             this.btnJugarDenuevo.Name = "btnJugarDenuevo";
             this.btnJugarDenuevo.Size = new System.Drawing.Size(115, 23);
             this.btnJugarDenuevo.TabIndex = 3;
@@ -73,7 +73,7 @@
             // 
             // btnMenuPrincipal
             // 
-            this.btnMenuPrincipal.Location = new System.Drawing.Point(140, 469);
+            this.btnMenuPrincipal.Location = new System.Drawing.Point(37, 368);
             this.btnMenuPrincipal.Name = "btnMenuPrincipal";
             this.btnMenuPrincipal.Size = new System.Drawing.Size(135, 23);
             this.btnMenuPrincipal.TabIndex = 4;
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 587);
+            this.ClientSize = new System.Drawing.Size(646, 446);
             this.Controls.Add(this.btnMenuPrincipal);
             this.Controls.Add(this.btnJugarDenuevo);
             this.Controls.Add(this.btnRanking);

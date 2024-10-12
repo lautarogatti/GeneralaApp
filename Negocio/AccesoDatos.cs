@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Negocio
 {
@@ -19,7 +20,7 @@ namespace Negocio
         }
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server = .\\SQLEXPRESS; database = BddgGenerala; integrated security = true");
+            conexion = new SqlConnection(ConfigurationManager.AppSettings["stringBdd"]);
             comando = new SqlCommand();
         }
         public void setearConsulta(string consulta){

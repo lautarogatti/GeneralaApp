@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Generala
 {
-    public partial class pantallaGanadores : Form
+    public partial class PantallaGanadores : Form
     {
-        public pantallaGanadores()
+        public PantallaGanadores()
         {
             InitializeComponent();
         }
