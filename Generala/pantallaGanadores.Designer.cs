@@ -80,7 +80,7 @@
             this.btnMenuPrincipal.Text = "Menú Principal";
             this.btnMenuPrincipal.UseVisualStyleBackColor = true;
             // 
-            // pantallaGanadores
+            // PantallaGanadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -90,8 +90,9 @@
             this.Controls.Add(this.btnRanking);
             this.Controls.Add(this.lblGanador);
             this.Controls.Add(this.dgvTablaScore);
-            this.Name = "pantallaGanadores";
+            this.Name = "PantallaGanadores";
             this.Text = "pantallaGanadores";
+            this.Load += new System.EventHandler(this.PantallaGanadores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablaScore)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

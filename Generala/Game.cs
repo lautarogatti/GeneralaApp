@@ -32,6 +32,9 @@ namespace Generala
         //variable contenedora del numero maximo de rondas a jugar la partida
         private int rondas;
 
+        //variable que contiene el estado actual de la bandera utilizada para el checkeo de cierre de ventana.
+        private bool banderaCierreVentanaPorUsuario = true;
+
         //variable contenedora del numero de la ronda que se esta jugando en el momento
         private int rondaActual = 1;
 
@@ -84,7 +87,8 @@ namespace Generala
             iniciarPbx();
             iniciarGeneralaClassic();
             Helper.ocultarColumna(dgvScores, "Id");
-            Helper.cargarImagen(ConfigurationManager.AppSettings["carpetaImagenes"] +"\\roca.gif", pbxJumbotron);
+            Helper.ocultarColumna(dgvScores, "TotalPuntaje");
+            Helper.cargarImagen(ConfigurationManager.AppSettings["carpetaImagenes"] + "\\roca.gif", pbxJumbotron);
             mostrarResolucion();
             actualizarLblTiradaActual();
         }
@@ -93,8 +97,10 @@ namespace Generala
         {
             if (tiradaActual == 1)
             {
+
                 tirarDados();
                 actualizarPbx();
+                esGeneralaServida();
                 actualizarTiradaActual();
                 actualizarLblTiradaActual();
                 deseleccionarDados(checkboxes);
@@ -102,6 +108,7 @@ namespace Generala
                 EsconderOMostrarBtnAnotar();
                 mostrarOEsconderBtnTachar();
                 mostrarOEsconderCmbCategorias();
+
             }
             else if (hayDadosSeleccionados())
             {
@@ -162,7 +169,7 @@ namespace Generala
         private void btnTachar_Click(object sender, EventArgs e)
         {
             string seleccionado = cmbCategorias.Text;
-            if( seleccionado != "")
+            if (seleccionado != "")
             {
                 tachar(seleccionado, turnos[turnoActual]);
                 actualizarRondaActual();
@@ -271,14 +278,25 @@ namespace Generala
             }
 
         }
+        private void Game_FormClosing(object sender, FormClosingEventArgs e)
+        {
 
+            if (e.CloseReason == CloseReason.UserClosing && banderaCierreVentanaPorUsuario == true)
+            {
+                DialogResult validacion = MessageBox.Show("Esta seguro que desea cerrar la partida en curso? (Si cierra se perderá el curso de la partida)", "Cerrar partida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (validacion != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
 
         //////////////////////////////////////////////////METODOS///////////////////////////////////////////////////
 
         //funcion encargada de cargar los picturebox con la imagen de dado randomizado
         private void iniciarPbx()
         {
-            string ruta = ConfigurationManager.AppSettings["carpetaImagenes"] +"\\random.gif";
+            string ruta = ConfigurationManager.AppSettings["carpetaImagenes"] + "\\random.gif";
             foreach (PictureBox pbx in pictureBoxes)
             {
                 Helper.cargarImagen(ruta, pbx);
@@ -834,14 +852,19 @@ namespace Generala
         {
             if (rondaActual == 11 && turnoActual == cantJugadores - 1)
             {
-                PantallaGanadores pantallaGanadores = new PantallaGanadores();
-                pantallaGanadores.Show();
-                this.Close();
+                finalizarPartida();
             }
             else if (turnoActual == cantJugadores - 1)
             {
                 rondaActual++;
             }
+        }
+        private void finalizarPartida()
+        {
+            PantallaGanadores pantallaGanadores = new PantallaGanadores(players, cantJugadores);
+            pantallaGanadores.Show();
+            banderaCierreVentanaPorUsuario = false;
+            this.Close();
         }
         private void actualizarLblRondaActual()
         {
@@ -1079,16 +1102,11 @@ namespace Generala
                     break;
             }
         }
-
-        private void Game_FormClosing(object sender, FormClosingEventArgs e)
+        private void esGeneralaServida()
         {
-            if(e.CloseReason == CloseReason.UserClosing)
+            if (verificarJuego() == "generala")
             {
-                DialogResult validacion = MessageBox.Show("Esta seguro que desea cerrar la partida en curso? (Si cierra se perderá el curso de la partida)", "Cerrar partida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(validacion != DialogResult.Yes)
-                {
-                    e.Cancel = true;
-                }
+                finalizarPartida();
             }
         }
     }

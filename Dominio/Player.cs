@@ -22,6 +22,7 @@ namespace Dominio
         public string Generala { get; set; }
         public string GeneralaDoble { get; set; }
 
+        public string TotalPuntaje { get; set; }
         public Player(int id,string nombre)
         {
             this.Id = id;
