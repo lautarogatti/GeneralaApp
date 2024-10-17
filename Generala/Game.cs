@@ -126,11 +126,14 @@ namespace Generala
 
         private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (banderaCierreVentanaPorUsuario)
             {
-                if (item.GetType() == typeof(MenuPrincipal))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Show();
+                    if (item.GetType() == typeof(MenuPrincipal))
+                    {
+                        item.Show();
+                    }
                 }
             }
         }
@@ -148,21 +151,22 @@ namespace Generala
         {
             if (anotar())
             {
-                actualizarRondaActual();
-                finalizarTurno();
-                actualizarLblTiradaActual();
-                escondeBotonTirarSiesUltimaTirada();
-                mostrarOEsconderBtnTachar();
-                mostrarOEsconderCmbCategorias();
-                actualizarlBLTurnoActual();
-                actualizarLblRondaActual();
-                turnoActualEnDgv();
-                dgvScores.DataSource = players;
-                deseleccionarDados(checkboxes);
-                iniciarPbx();
-                EsconderOMostrarBtnAnotar();
+                if (actualizarRondaActual())
+                {
+                    finalizarTurno();
+                    actualizarLblTiradaActual();
+                    escondeBotonTirarSiesUltimaTirada();
+                    mostrarOEsconderBtnTachar();
+                    mostrarOEsconderCmbCategorias();
+                    actualizarlBLTurnoActual();
+                    actualizarLblRondaActual();
+                    turnoActualEnDgv();
+                    dgvScores.DataSource = players;
+                    deseleccionarDados(checkboxes);
+                    iniciarPbx();
+                    EsconderOMostrarBtnAnotar();
+                }
             }
-
         }
 
 
@@ -172,21 +176,22 @@ namespace Generala
             if (seleccionado != "")
             {
                 tachar(seleccionado, turnos[turnoActual]);
-                actualizarRondaActual();
-                finalizarTurno();
-                actualizarLblTiradaActual();
-                escondeBotonTirarSiesUltimaTirada();
-                mostrarOEsconderBtnTachar();
-                mostrarOEsconderCmbCategorias();
-                actualizarlBLTurnoActual();
-                actualizarLblRondaActual();
-                turnoActualEnDgv();
-                dgvScores.DataSource = players;
-                deseleccionarDados(checkboxes);
-                iniciarPbx();
-                EsconderOMostrarBtnAnotar();
+                if (actualizarRondaActual())
+                {
+                    finalizarTurno();
+                    actualizarLblTiradaActual();
+                    escondeBotonTirarSiesUltimaTirada();
+                    mostrarOEsconderBtnTachar();
+                    mostrarOEsconderCmbCategorias();
+                    actualizarlBLTurnoActual();
+                    actualizarLblRondaActual();
+                    turnoActualEnDgv();
+                    dgvScores.DataSource = players;
+                    deseleccionarDados(checkboxes);
+                    iniciarPbx();
+                    EsconderOMostrarBtnAnotar();
+                }
             }
-
         }
 
         private void pbxDUno_Click(object sender, EventArgs e)
@@ -848,16 +853,19 @@ namespace Generala
                 turnoActual = 0;
             }
         }
-        private void actualizarRondaActual()
+        private bool actualizarRondaActual()
         {
             if (rondaActual == 11 && turnoActual == cantJugadores - 1)
             {
                 finalizarPartida();
+                return false;
             }
             else if (turnoActual == cantJugadores - 1)
             {
                 rondaActual++;
+                return true;
             }
+            return true;
         }
         private void finalizarPartida()
         {

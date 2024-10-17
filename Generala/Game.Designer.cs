@@ -171,7 +171,7 @@
             // 
             this.lblRondas.AutoSize = true;
             this.lblRondas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRondas.Location = new System.Drawing.Point(75, 367);
+            this.lblRondas.Location = new System.Drawing.Point(889, 86);
             this.lblRondas.Name = "lblRondas";
             this.lblRondas.Size = new System.Drawing.Size(42, 25);
             this.lblRondas.TabIndex = 9;
@@ -338,9 +338,10 @@
             // lblTiradaActual
             // 
             this.lblTiradaActual.AutoSize = true;
-            this.lblTiradaActual.Location = new System.Drawing.Point(898, 83);
+            this.lblTiradaActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTiradaActual.Location = new System.Drawing.Point(87, 358);
             this.lblTiradaActual.Name = "lblTiradaActual";
-            this.lblTiradaActual.Size = new System.Drawing.Size(24, 13);
+            this.lblTiradaActual.Size = new System.Drawing.Size(38, 24);
             this.lblTiradaActual.TabIndex = 28;
             this.lblTiradaActual.Text = "1/3";
             // 
