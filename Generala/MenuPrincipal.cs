@@ -23,5 +23,12 @@ namespace Generala
             this.Hide();
             lobby.ShowDialog();
         }
+
+        private void btnRanking_Click(object sender, EventArgs e)
+        {
+            Ranking ranking = new Ranking();
+            this.Hide();
+            ranking.ShowDialog();
+        }
     }
 }

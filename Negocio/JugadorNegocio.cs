@@ -48,7 +48,6 @@ namespace Negocio
             try
             {
                 datos.setearConsulta("insert into jugadores (nombre, partidasGanadas, partidasJugadas) values (@nombre, 0, 0)");
-                //datos.setearParametro("@id", jugador.Id);
                 datos.setearParametro("@nombre", jugador.Nombre);
                 datos.ejecutarAccion();
             }

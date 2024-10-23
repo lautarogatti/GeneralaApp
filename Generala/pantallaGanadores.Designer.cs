@@ -61,6 +61,7 @@
             this.btnRanking.TabIndex = 2;
             this.btnRanking.Text = "Ranking";
             this.btnRanking.UseVisualStyleBackColor = true;
+            this.btnRanking.Click += new System.EventHandler(this.btnRanking_Click);
             // 
             // btnJugarDenuevo
             // 
@@ -70,6 +71,7 @@
             this.btnJugarDenuevo.TabIndex = 3;
             this.btnJugarDenuevo.Text = "Jugar Denuevo";
             this.btnJugarDenuevo.UseVisualStyleBackColor = true;
+            this.btnJugarDenuevo.Click += new System.EventHandler(this.btnJugarDenuevo_Click);
             // 
             // btnMenuPrincipal
             // 
@@ -79,6 +81,7 @@
             this.btnMenuPrincipal.TabIndex = 4;
             this.btnMenuPrincipal.Text = "Menú Principal";
             this.btnMenuPrincipal.UseVisualStyleBackColor = true;
+            this.btnMenuPrincipal.Click += new System.EventHandler(this.btnMenuPrincipal_Click);
             // 
             // PantallaGanadores
             // 

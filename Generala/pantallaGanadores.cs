@@ -17,7 +17,7 @@ namespace Generala
     {
         BindingList<Player> ListaDePlayers;
 
-        public int cantJugadores { get; private set; }
+        public int cantJugadores { get; set; }
 
         public PantallaGanadores(BindingList<Player> players, int cantJugadores)
         {
@@ -29,10 +29,10 @@ namespace Generala
         private void PantallaGanadores_Load(object sender, EventArgs e)
         {
             sumarPuntaje();
-            ocultarColumnas();
             ordenarPorMayorPuntaje();
             elegirGanador();
             dgvTablaScore.DataSource = ListaDePlayers;
+            ocultarColumnas();
         }
 
         private void ocultarColumnas()
@@ -132,6 +132,32 @@ namespace Generala
                 ListaDePlayers.Remove(j);
             }
             ListaDePlayers = listaOrdenadaDeMayorAmenor;
+        }
+
+        private void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            foreach (Form item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(MenuPrincipal))
+                {
+                    item.Show();
+                }
+            }
+            this.Close();
+        }
+
+        private void btnJugarDenuevo_Click(object sender, EventArgs e)
+        {
+            Lobby lobby = new Lobby();
+            lobby.Show();
+            this.Close();
+        }
+
+        private void btnRanking_Click(object sender, EventArgs e)
+        {
+            Ranking rank = new Ranking();
+            rank.Show();
+            this.Close();
         }
     }
 }

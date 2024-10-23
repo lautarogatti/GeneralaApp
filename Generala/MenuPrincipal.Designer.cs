@@ -75,6 +75,7 @@
             this.btnRanking.TabIndex = 2;
             this.btnRanking.Text = "Ranking";
             this.btnRanking.UseVisualStyleBackColor = true;
+            this.btnRanking.Click += new System.EventHandler(this.btnRanking_Click);
             // 
             // MenuPrincipal
             // 
