@@ -81,5 +81,58 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void ActualizarEstadisticas(List<int> idsParticipantes, int idGanador)
+        {
+            AccesoDatos datos = null;
+
+            // Incrementa partidasJugadas para cada jugador participante.
+            foreach (int jugadorId in idsParticipantes)
+            {
+                try
+                {
+                    datos = new AccesoDatos(); // Crea una nueva instancia de AccesoDatos.
+                    datos.setearConsulta($"UPDATE jugadores SET partidasJugadas = partidasJugadas + 1 WHERE id = {jugadorId}");
+                    datos.ejecutarAccion();
+                }
+                catch (Exception ex)
+                {
+                    // Si ocurre un error, lanza una excepción con un mensaje específico.
+                    throw new Exception("Error al actualizar partidasJugadas para el jugador con ID: " + jugadorId, ex);
+                }
+                finally
+                {
+                    // Asegura que la conexión se cierra, incluso si ocurre un error.
+                    if (datos != null)
+                    {
+                        datos.cerrarConexion(); // Asegura que la conexión se cierra después de cada operación.
+                    }
+                }
+            }
+
+            // Incrementa `partidasGanadas` solo para el jugador que ganó la partida.
+            try
+            {
+                datos = new AccesoDatos(); // Nueva instancia para el ganador.
+                datos.setearConsulta($"UPDATE jugadores SET partidasGanadas = partidasGanadas + 1 WHERE id = {idGanador}");
+                // Define la consulta SQL para incrementar `partidasGanadas` del jugador ganador que le pasamos por parametro.
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar partidasGanadas para el jugador ganador con ID: " + idGanador, ex);
+            }
+            finally
+            {
+                // Asegura que la conexión se cierra después de la operación para el ganador.
+                if (datos != null)
+                {
+                    datos.cerrarConexion(); // Asegura que la conexión se cierra después de la operación del ganador.
+                }
+            }
+        }
+
+
+
     }
 }

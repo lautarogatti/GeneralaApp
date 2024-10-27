@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Dominio;
 using Generala;
 using Helpers;
+using Negocio;
 namespace Generala
 {
     public partial class PantallaGanadores : Form
@@ -33,6 +34,7 @@ namespace Generala
             elegirGanador();
             dgvTablaScore.DataSource = ListaDePlayers;
             ocultarColumnas();
+            ActualizarResultadosPartida(); // nuevo
         }
 
         private void ocultarColumnas()
@@ -159,6 +161,40 @@ namespace Generala
             rank.Show();
             this.Close();
         }
+
+        //esta es nueva tambien
+        private void ActualizarResultadosPartida()
+        {
+            // Obtener la lista de IDs de los jugadores participantes.
+            List<int> idsParticipantes = ObtenerIdsParticipantes();
+
+            // Obtener el ID del jugador que ganó.
+            int idGanador = ObtenerIdGanador();
+
+            // Crear instancia de JugadorNegocio para actualizar estadísticas en la base de datos.
+            JugadorNegocio jugadorNegocio = new JugadorNegocio();
+
+            // Llama a la función para actualizar estadísticas en la base de datos.
+            jugadorNegocio.ActualizarEstadisticas(idsParticipantes, idGanador);
+        }
+
+        private List<int> ObtenerIdsParticipantes()
+        {
+            List<int> idsParticipantes = new List<int>();  // Crea una lista para almacenar los IDs de los jugadores.
+
+           // Recorro cada jugador en la BindingList `ListaDePlayers`que serian los jugadores que participaron en la partida.
+            foreach (Player player in ListaDePlayers)
+            {
+                idsParticipantes.Add(player.Id); // Agrega el ID de cada jugador a la lista "idsParticipantes".
+            }
+            return idsParticipantes; //retorno la lista que contiene los ID de cada jugador que participó en la partida.
+        }
+        private int ObtenerIdGanador()
+        {
+            return ListaDePlayers.First().Id;  // Devuelve el ID del primer jugador en la lista ordenada, que es el ganador.
+        }
+
+
     }
 }
 
